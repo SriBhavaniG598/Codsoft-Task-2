@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class AcademicPerformanceEvaluator {
+    public static void main(String[] args) {
+        Scanner inputScanner = new Scanner(System.in);
+        System.out.print("Enter the number of courses: ");
+        int numCourses = inputScanner.nextInt();
+        int totalMarks = 0;
+
+        for (int i = 1; i <= numCourses; i++) {
+            System.out.print("Enter marks for course " + i + ": ");
+            totalMarks += inputScanner.nextInt();
+        }
+
+        double overallPercentage = (double) totalMarks / (numCourses * 100) * 100;
+        char grade;
+
+        if (overallPercentage >= 90) {
+            grade = 'A';
+        } else if (overallPercentage >= 80) {
+            grade = 'B';
+        } else if (overallPercentage >= 70) {
+            grade = 'C';
+        } else if (overallPercentage >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.printf("Average Percentage: %.2f%%\n", overallPercentage);
+        System.out.println("Grade: " + grade);
+        inputScanner.close();
+    }
+}
